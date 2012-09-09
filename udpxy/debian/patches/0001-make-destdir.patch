@@ -1,0 +1,12 @@
+fixed $DESTDIR support
+--- a/Makefile
++++ b/Makefile
+@@ -92,7 +92,7 @@
+ CHANGEFILE := CHANGES
+ READMEFILE := README
+ 
+-INSTALLROOT := /usr/local
++INSTALLROOT := $(DESTDIR)/usr/
+ 
+ ARCDIR = ..
+ ARCFILE := $(ARCDIR)/$(EXEC).$(VERSION).$(BUILDNO)-$(PATCHNO)-$(BTYPE).tar.gz

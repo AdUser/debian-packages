@@ -1,0 +1,14 @@
+# Automatically start daemon
+START_DAEMON=0
+
+# Interface for client connections (you may also put ipv4 address here)
+HTTP_IFACE="eth0"
+
+# port to listen on for clients connections
+HTTP_PORT="4022"
+
+# Interface to get multicast stream source (you may also put ipv4 address here)
+MCAST_IFACE="eth1"
+
+# auxillary daemon options
+DAEMON_ARGS="-M 60 -c 5"

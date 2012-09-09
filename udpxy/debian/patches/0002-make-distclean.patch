@@ -1,0 +1,12 @@
+added missing 'distclean' target
+--- a/Makefile	2012-09-06 02:25:33.518836894 +1100
++++ b/Makefile	2012-09-06 02:25:50.738837284 +1100
+@@ -188,6 +188,8 @@
+ 	ln -s $(EXEC) $(UDPXREC)
+ endif
+ 
++distclean: clean
++
+ clean:
+ 	rm -f $(CORES) $(DEPFILE) $(OBJ) $(EXEC) $(UDPXREC)
+ 

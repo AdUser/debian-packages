@@ -1,0 +1,15 @@
+Source: udpxy
+Section: net
+Priority: extra
+Maintainer: Alex <ad_user@lavabit.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://www.udpxy.com
+
+Package: udpxy
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: udpxy is a UDP-to-HTTP multicast traffic relay daemon
+ udpxy is a UDP-to-HTTP multicast traffic relay daemon:
+ it forwards UDP traffic from a given multicast subscription
+ to the requesting HTTP client.
