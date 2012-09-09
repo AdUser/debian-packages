@@ -1,0 +1,3 @@
+version=3
+
+http://www.niisi.ru/kumir/1.7.3/ kumir-(.*)\.tar\.gz

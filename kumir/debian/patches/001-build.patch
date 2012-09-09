@@ -1,0 +1,78 @@
+--- src/Scripts/install_kumir.py	2012-03-16 12:46:13.047889384 +1100
++++ dst/Scripts/install_kumir.py	2012-03-16 13:02:39.272893808 +1100
+@@ -1,5 +1,6 @@
+ #!/usr/bin/python
+ 
++import os
+ import sys
+ 
+ for arg in sys.argv:
+@@ -14,11 +15,17 @@
+ if PREFIX=="": PREFIX="/usr/local"
+ if KUMIR_DIR=="": KUMIR_DIR = PREFIX+"/kumir"
+ 
++env = os.environ
++if env.has_key('DESTDIR'):
++    KUMIR_DIR_ORIG = KUMIR_DIR
++    PREFIX = os.environ['DESTDIR']+PREFIX
++    KUMIR_DIR = os.environ['DESTDIR']+KUMIR_DIR
++
+ from install_generic import *
+ 
+ if SPEC=="unix":
+     install_file("../kumir",KUMIR_DIR+"/kumir",True)
+-    create_shell_link(KUMIR_DIR+"/kumir",PREFIX+"/bin/kumir")
++    create_shell_link(KUMIR_DIR_ORIG+"/kumir",PREFIX+"/bin/kumir")
+ elif SPEC=="win32":
+     install_file("../kumir.exe",KUMIR_DIR+"/kumir.exe",True)
+ install_dir("Config",KUMIR_DIR+"/Kumir")
+--- src/Scripts/install_addon.py	2012-03-16 11:42:06.676228361 +1100
++++ dst/Scripts/install_addon.py	2012-03-16 11:42:54.536231642 +1100
+@@ -1,6 +1,8 @@
+ #!/usr/bin/python
+ 
++import os
+ import sys
++
+ RESOURCES = []
+ ADDON = None
+ PREFIX = ""
+@@ -22,6 +24,11 @@
+ if PREFIX=="": PREFIX="/usr/local"
+ if KUMIR_DIR=="": KUMIR_DIR = PREFIX+"/kumir"
+ 
++env = os.environ
++if env.has_key('DESTDIR'):
++    PREFIX = os.environ['DESTDIR']+PREFIX
++    KUMIR_DIR = os.environ['DESTDIR']+KUMIR_DIR
++
+ if ADDON is None:
+     print "Error: Addon is not set"
+     sys.exit(1)
+--- src/Scripts/install_pluginstarter.py	2012-03-16 13:06:17.555886462 +1100
++++ dst/Scripts/install_pluginstarter.py	2012-03-16 13:07:20.371896375 +1100
+@@ -1,5 +1,6 @@
+ #!/usr/bin/python
+ 
++import os
+ import sys
+ 
+ for arg in sys.argv:
+@@ -14,10 +15,16 @@
+ if PREFIX=="": PREFIX="/usr/local"
+ if KUMIR_DIR=="": KUMIR_DIR = PREFIX+"/kumir"
+ 
++env = os.environ
++if env.has_key('DESTDIR'):
++    KUMIR_DIR_ORIG = KUMIR_DIR
++    PREFIX = os.environ['DESTDIR']+PREFIX
++    KUMIR_DIR = os.environ['DESTDIR']+KUMIR_DIR
++
+ from install_generic import *
+ 
+ if SPEC=="unix":
+     install_file("../pluginstarter",KUMIR_DIR+"/pluginstarter",True)
+-    create_shell_link(KUMIR_DIR+"/pluginstarter",PREFIX+"/bin/kumpluginstarter")
++    create_shell_link(KUMIR_DIR_ORIG+"/pluginstarter",PREFIX+"/bin/kumpluginstarter")
+ elif SPEC=="win32":
+     install_file("../pluginstarter.exe",KUMIR_DIR+"/pluginstarter.exe",True)

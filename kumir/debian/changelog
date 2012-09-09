@@ -1,0 +1,5 @@
+kumir (1.7.3-1) unstable; urgency=low
+
+  * Initial builded for debian (Closes: #551765)
+
+ -- Alex 'AdUser' Z <ad_user@mail.ru>  Sun, 11 Mar 2012 15:50:02 +1100

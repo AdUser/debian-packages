@@ -1,0 +1,17 @@
+Source: kumir
+Section: Education
+Priority: extra
+Maintainer: Alex 'AdUser' Z <ad_user@mail.ru>
+Build-Depends: dpatch, debhelper (>= 7.0.50~), qt4-qmake, libqt4-dev, libx11-dev, libxext-dev, python (>= 2.5),
+Standards-Version: 3.8.4
+Homepage: http://www.niisi.ru/kumir/
+Vcs-Svn: svn://lpm.org.ru/svn/kumir/branches/1.7/
+Vcs-Browser: http://lpm.org.ru/svn/kumir/
+
+Package: kumir
+Architecture: i386
+Depends: libqt4-core, libqt4-gui, libqt4-network, libqtscript4-core, libqt4-svg, libqt4-xml, libqt4-webkit, ${shlibs:Depends}, ${misc:Depends}
+Description: Kumir Language Implementation
+  Implementation of Kumir programming language, designed by academic Ershov.
+  Includes compiler, runtime, IDE, Robot and Draw.
+  Also includes addons: Turtle, Aquarius, Grasshopper.

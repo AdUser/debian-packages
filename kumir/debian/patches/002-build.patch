@@ -1,0 +1,48 @@
+--- src/Kumir/Kumir.pro	2012-03-16 14:01:55.636892882 +1100
++++ dst/Kumir/Kumir.pro	2012-03-16 14:02:29.551895340 +1100
+@@ -171,4 +171,5 @@
+ macx:dummy.extra=../Mac/Kumir/embed_macosx_resources.sh
+ win32:dummy.extra=python ../Scripts/install_kumir.py --spec=win32 --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+ dummy.path=./
++unix:dummy.path = /
+ INSTALLS = dummy
+--- src/PluginStarter/PluginStarter.pro	2012-03-16 14:03:07.179896173 +1100
++++ dst/PluginStarter/PluginStarter.pro	2012-03-16 14:03:28.875896150 +1100
+@@ -14,6 +14,7 @@
+ INCLUDEPATH += ../Addons
+ include(../Scripts/common.pri)
+ dummy.path = ./
++unix:dummy.path = /
+ unix: dummy.extra = python ../Scripts/install_pluginstarter.py --spec=unix --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+ macx: dummy.extra = python ../Scripts/install_pluginstarter.py --spec=macx --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+ win32: dummy.extra = python ../Scripts/install_pluginstarter.py --spec=win32 --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+--- src/Addons/Kuznechik/Kuznechik.pro	2012-03-16 14:04:17.643896305 +1100
++++ dst/Addons/Kuznechik/Kuznechik.pro	2012-03-16 14:04:39.588895891 +1100
+@@ -34,6 +34,7 @@
+ TARGET = ../kuznechik
+ win32:TARGET = ../../kuznechik
+ dummy.path = .
++unix:dummy.path = /
+ unix:dummy.extra = python ../../Scripts/install_addon.py --addon=kuznechik --spec=unix --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+ macx:dummy.extra = python ../../Scripts/install_addon.py --addon=kuznechik --spec=macx --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+ win32:dummy.extra = python ../../Scripts/install_addon.py --addon=kuznechik --spec=win32 --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+--- src/Addons/vodoley/vodoley.pro	2012-03-16 14:06:13.619894177 +1100
++++ dst/Addons/vodoley/vodoley.pro	2012-03-16 14:06:31.560896183 +1100
+@@ -6,6 +6,7 @@
+           thread 
+ 
+ dummy.path = .
++unix:dummy.path = /
+ unix:dummy.extra = python ../../Scripts/install_addon.py --addon=vodoley --spec=unix --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR --resources=resources
+ macx:dummy.extra = python ../../Scripts/install_addon.py --addon=vodoley --spec=macx --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR --resources=resources
+ win32:dummy.extra = python ../../Scripts/install_addon.py --addon=vodoley --spec=win32 --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR --resources=resources
+--- src/Addons/TurtleNew/TurtleNew.pro	2012-03-16 14:37:43.560517014 +1100
++++ dst/Addons/TurtleNew/TurtleNew.pro	2012-03-16 14:39:25.928921865 +1100
+@@ -2,6 +2,7 @@
+ SUBDIRS = turtle
+ 
+ dummy.path = .
++unix:dummy.path = /
+ unix:dummy.extra = python ../../Scripts/install_addon.py --addon=turtle --spec=unix --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+ macx:dummy.extra = python ../../Scripts/install_addon.py --addon=turtle --spec=macx --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR
+ win32:dummy.extra = python ../../Scripts/install_addon.py --addon=turtle --spec=win32 --prefix=$$PREFIX --kumir-dir=$$KUMIR_DIR

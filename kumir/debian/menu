@@ -1,0 +1,1 @@
+?package(kumir):needs="X11" section="Applications/Education" title="KuMir" command="/usr/bin/kumir"
