@@ -1,0 +1,14 @@
+Source: isconf
+Section: admin
+Priority: optional
+Maintainer: Alex 'AdUser' Z <ad_user@mail.ru>
+Build-Depends: debhelper (>= 7.0.50~), python (>=2.3)
+Standards-Version: 3.8.4
+Homepage: http://www.isconf.org
+
+Package: isconf
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Description: Infrastructure configuration management tool
+ Distributed peer-to-peer configuration management tool.
+ ISconf can be thought of as a cross between sudo(8) and a distributed version control tool like Git or Bitkeeper.

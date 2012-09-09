@@ -1,0 +1,2 @@
+version=4
+http://trac.t7a.org/isconf/pub http://trac.t7a.org/isconf/pub/isconf-(.*)\.tar\.gz

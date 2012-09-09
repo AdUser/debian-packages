@@ -1,0 +1,11 @@
+--- isconf-4.2.8.250/Makefile.old	2012-02-27 16:23:27.126701585 +1100
++++ isconf-4.2.8.250/Makefile	2012-02-27 16:24:46.646669333 +1100
+@@ -9,7 +9,7 @@
+ all:
+ 
+ install:
+-	python ./setup.py install
++	python ./setup.py install --prefix="/usr" --root=$(DESTDIR) --install-layout=deb
+ 	# chmod might be needed with some versions of distutils
+ 	# chmod 755 /usr/bin/isconf   
+ 

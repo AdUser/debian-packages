@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Automatically added by dh_installinit
+if [ -x "/etc/init.d/isconf" ]; then
+	update-rc.d isconf defaults >/dev/null
+	if [ -x "`which invoke-rc.d 2>/dev/null`" ]; then
+		invoke-rc.d isconf start || exit $?
+	else
+		/etc/init.d/isconf start || exit $?
+	fi
+fi
+# End automatically added section
+
+# Automatically added by dh_python2:
+if which pycompile >/dev/null 2>&1; then
+	pycompile -p isconf 
+fi
+
+# End automatically added section

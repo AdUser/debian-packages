@@ -1,0 +1,12 @@
+Document: isconf
+Title: ISConf manual
+Author: Steve Traugott
+Abstract: psutil is a module providing an interface for retrieving
+ information on running processes and system utilization (CPU, memory)
+ in a portable way by using Python, implementing many functionalities
+offered by command line tools like ps, top, kill and WindSteve Traugott
+Section: System/Administration
+
+Format: HTML
+Index: /usr/share/doc/isconf/docs/isconf.html
+Files: /usr/share/doc/isconf/docs/*.html
