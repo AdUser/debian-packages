@@ -1,0 +1,169 @@
+From 2b7caf2aef4e95dbbafa25403cc17109da47ace6 Mon Sep 17 00:00:00 2001
+From: Alex 'AdUser' Z <ad_user@mail.ru>
+Date: Sun, 17 Jun 2012 00:37:41 +1100
+Subject: [PATCH 1/2] + added 'grep-friendly' mode
+
+---
+ r2t.c |   48 +++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 33 insertions(+), 15 deletions(-)
+
+diff --git a/r2t.c b/r2t.c
+index 82c1a8c..9b3e62a 100644
+--- a/r2t.c
++++ b/r2t.c
+@@ -6,6 +6,9 @@
+ #include <errno.h>
+ #include <mrss.h>
+ 
++#define PRINTL(fallback, str, end) \
++		printf("%s%s%s", no_heading ? "": (fallback), (str), (end) ? (end) : "\n" );
++
+ void replace(char *in, char *what, char by_what)
+ {
+ 	int what_len = strlen(what);
+@@ -22,7 +25,7 @@ void replace(char *in, char *what, char by_what)
+ 	}
+ }
+ 
+-char *remove_html_tags(char *in)
++char *remove_html_tags(char *in, int oneline)
+ {
+ 	char *copy = strdup(in);
+ 
+@@ -37,6 +40,9 @@ char *remove_html_tags(char *in)
+ 		if (!gt)
+ 			break;
+ 
++		if (oneline)
++			*lt = ' ', lt++;
++
+ 		memcpy(lt, gt + 1, strlen(gt + 1) + 1);
+ 	}
+ 
+@@ -44,6 +50,9 @@ char *remove_html_tags(char *in)
+ 	replace(copy, "&gt;", '>');
+ 	replace(copy, "&amp;", '&');
+ 
++	if (oneline)
++		replace(copy, "\n", ' ');
++
+ 	return copy;
+ }
+ 
+@@ -114,6 +123,7 @@ void usage(void)
+ 	printf("-b x	limit description/comments to x bytes\n");
+ 	printf("-z      continue even if there are XML parser errors in the RSS feed\n");
+ 	printf("-Z x    add heading 'x'\n");
++	printf("-g x    grep-friendly format, one line per item with 'x' as delimiter\n");
+ 	printf("-n x	initially show x items\n");
+ 	printf("-r            reverse output, so it looks more like an RSS feed\n");
+ 	printf("-H      strip HTML tags\n");
+@@ -151,13 +161,14 @@ int main(int argc, char *argv[])
+ 	int show_n = -1;
+ 	long int max_age = -1;
+ 	char *heading = NULL;
++	char *delim = NULL;
+ 	mrss_options_t mot;
+ 	char *auth = NULL;
+ 	char reverse = 0;
+ 
+ 	memset(&mot, 0x00, sizeof(mot));
+ 
+-	while((sw = getopt(argc, argv, "A:Z:1b:PHztldrpacu:Ni:n:x:y:vVh")) != -1)
++	while((sw = getopt(argc, argv, "A:Z:1b:PHztldrpacu:Ni:n:x:y:vVhg:")) != -1)
+ 	{
+ 		switch(sw)
+ 		{
+@@ -186,6 +197,10 @@ int main(int argc, char *argv[])
+ 				}
+ 				break;
+ 
++			case 'g':
++				delim = optarg;
++				break;
++
+ 			case 'P':
+ 				no_error_exit = 1;
+ 				break;
+@@ -451,36 +466,37 @@ int main(int argc, char *argv[])
+ 					time_t now = time(NULL);
+ 					struct tm *now_tm = localtime(&now);
+ 
+-					printf("%04d/%02d/%02d %02d:%02d:%02d  ",
++					printf("%04d/%02d/%02d %02d:%02d:%02d%s",
+ 							now_tm -> tm_year + 1900,
+ 							now_tm -> tm_mon + 1,
+ 							now_tm -> tm_mday,
+ 							now_tm -> tm_hour,
+ 							now_tm -> tm_min,
+-							now_tm -> tm_sec);
++							now_tm -> tm_sec,
++							delim ? delim : "  ");
+ 				}
+ 
+ 				if (heading)
+ 				{
+-					printf(" %s", heading);
++					printf("%s%s", heading, delim ? delim : " ");
+ 				}
+ 
+ 				if (item_cur -> title != NULL)
+-					printf("%s%s\n", no_heading?" ":"Title: ", item_cur -> title);
++					PRINTL("Title: ", item_cur -> title, delim);
+ 
+ 				if (show_link && item_cur -> link != NULL)
+-					printf("%s%s\n", no_heading?" ":"Link: ", item_cur -> link);
++					PRINTL("Link: ", item_cur -> link, delim);
+ 
+ 				if (show_description && item_cur -> description != NULL)
+ 				{
+ 					if (strip_html)
+ 					{
+-						char *stripped = remove_html_tags(item_cur -> description);
++						char *stripped = remove_html_tags(item_cur -> description, delim?1:0);
+ 
+ 						if (bytes_limit != 0 && bytes_limit < strlen(stripped))
+ 							stripped[bytes_limit] = 0x00;
+ 
+-						printf("%s%s\n", no_heading?" ":"Description: ", stripped);
++						PRINTL("Description: ", stripped, delim);
+ 
+ 						free(stripped);
+ 					}
+@@ -489,25 +505,27 @@ int main(int argc, char *argv[])
+ 						if (bytes_limit != 0 && bytes_limit < strlen(item_cur -> description))
+ 							(item_cur -> description)[bytes_limit] = 0x00;
+ 
+-						printf("%s%s\n", no_heading?" ":"Description: ", item_cur -> description);
++						PRINTL("Description: ", item_cur -> description, delim);
+ 					}
+-				}
++				} 
+ 
+ 				if (show_pubdate && item_cur -> pubDate != NULL)
+-					printf("%s%s\n", no_heading?" ":"Pub.date: ", item_cur -> pubDate);
++					PRINTL("Pub.Date: ", item_cur -> pubDate, delim);
+ 
+ 				if (show_author && item_cur -> author != NULL)
+-					printf("%s%s\n", no_heading?" ":"Author: ", item_cur -> author);
++					PRINTL("Author: ", item_cur -> author, delim);
+ 
+ 				if (show_comments && item_cur -> comments != NULL)
+ 				{
+ 					if (bytes_limit != 0 && bytes_limit < strlen(item_cur -> comments))
+ 						(item_cur -> comments)[bytes_limit] = 0x00;
+ 
+-					printf("%s%s\n", no_heading?" ":"Comments: ", item_cur -> comments);
++					PRINTL("Comments: ", item_cur -> comments, delim);
+ 				}
+-			}
+ 
++				if (delim)
++					printf("\n");
++			}
+ 			item_cur = item_cur -> next;
+ 		}
+ 
+-- 
+1.7.10.3
+

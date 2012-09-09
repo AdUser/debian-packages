@@ -1,0 +1,25 @@
+From 564819906d914db72998ac1c3c7b25aaba4e1dad Mon Sep 17 00:00:00 2001
+From: Alex 'AdUser' Z <ad_user@mail.ru>
+Date: Sun, 17 Jun 2012 00:38:32 +1100
+Subject: [PATCH 2/2] = memcpy on overlapped memory region
+
+---
+ r2t.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/r2t.c b/r2t.c
+index 9b3e62a..35cc961 100644
+--- a/r2t.c
++++ b/r2t.c
+@@ -43,7 +43,7 @@ char *remove_html_tags(char *in, int oneline)
+ 		if (oneline)
+ 			*lt = ' ', lt++;
+ 
+-		memcpy(lt, gt + 1, strlen(gt + 1) + 1);
++		memmove(lt, gt + 1, strlen(gt + 1) + 1);
+ 	}
+ 
+ 	replace(copy, "&lt;", '<');
+-- 
+1.7.10.3
+

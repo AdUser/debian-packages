@@ -1,2 +1,4 @@
 new_options_manpage.patch
 makefile_cflags.patch
+0001-added-grep-friendly-mode.patch
+0002-memcpy-on-overlapped-memory-region.patch

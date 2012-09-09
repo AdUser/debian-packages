@@ -1,3 +1,9 @@
+rsstail (1.8-2) UNRELEASED; urgency=low
+
+  * added 2 patches: fix memcpy() and one-line output mode
+
+ -- Alex 'AdUser' Z <ad_user@lavabit.com>  Tue, 04 Sep 2012 02:49:34 +1100
+
 rsstail (1.8-1) unstable; urgency=low
 
   * New upstream release (Closes: #674232)
