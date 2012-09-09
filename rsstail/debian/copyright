@@ -1,0 +1,21 @@
+This package was debianized by Rene Mayorga <rmayorga@debian.org.sv> on
+Wed, 30 May 2007 22:41:21 -0600.
+
+It was downloaded from http://www.vanheusden.com/rsstail/ 
+
+Upstream Author: 
+    Folkert van Heusden <folkert@vanheusden.com>
+
+    Copyright © 2005-2007 by folkert@vanheusden.com
+    Copyright © 2007-2010 by folkert@vanheusden.com
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version
+
+The Debian packaging is Copyright 2007, Rene Mayorga <rmayorga@debian.org.sv> and
+is licensed under the GPL version 2 or later at your choice,
+
+On Debian systems, the  full text for the latest GPL license can be found
+in `/usr/share/common-licenses/GPL-2'.

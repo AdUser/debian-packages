@@ -1,0 +1,26 @@
+Description: Remove hardcoded CFLAGS
+Origin: vendor
+Forwarded: no
+Author: René Mayorga <rmayorga@debian.org>
+Last-Update: 2012-06-26
+--- rsstail-1.8.orig/Makefile
++++ rsstail-1.8/Makefile
+@@ -1,15 +1,15 @@
+ VERSION=1.8
+ 
+ DEBUG=-g
+-LDFLAGS=-lmrss $(DEBUG)
+-CFLAGS=-O2 -Wall -DVERSION=\"$(VERSION)\" $(DEBUG)
++CFLAGS+=$(shell dpkg-buildflags --get CFLAGS) $(DEBUG) -DVERSION=\"$(VERSION)\"
++LDFLAGS+=-lmrss $(shell dpkg-buildflags --get LDFLAGS) $(DEBUG)
+ 
+ OBJS=r2t.o
+ 
+ all: rsstail
+ 
+ rsstail: $(OBJS)
+-	$(CC) -Wall -W $(OBJS) $(LDFLAGS) -o rsstail
++	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o rsstail
+ 	#
+ 	# Oh, blatant plug: http://keetweej.vanheusden.com/wishlist.html
+ 

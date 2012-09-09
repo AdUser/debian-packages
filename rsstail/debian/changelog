@@ -1,0 +1,99 @@
+rsstail (1.8-1) unstable; urgency=low
+
+  * New upstream release (Closes: #674232)
+  * Change Standards-Version to 3.9.3 (No changes needed)
+  * debian/compat: set to 9
+  * debian/control:
+    + remove quilt B-D
+    + set dh depends to 9
+  * Convert to Source format 3.0
+    + Remove README.source
+  * Add more headers to the patches
+  * debian/rules: use dh simple file
+  * debian/patches: Update headers on the patches
+    + makefile_cflags.patch: Small changes to support hardening.
+  * debian/copyright: Update copyright years
+
+ -- Rene Mayorga <rmayorga@debian.org>  Mon, 25 Jun 2012 11:36:05 -0600
+
+rsstail (1.7-1) unstable; urgency=low
+
+  * New upstream release
+  * Update Standards-Version to 3.9.1(No changes needed)
+  * Update debian/copyright to point for GPL-2 instead GPL
+  * Switch to dpkg-source 3.0 (quilt) format
+
+ -- Rene Mayorga <rmayorga@debian.org>  Sun, 13 Mar 2011 22:24:06 -0600
+
+rsstail (1.5-1) unstable; urgency=low
+
+  * New Upstream Version
+  * remove hardcoded CFLAGS from upstream Makefile
+  * debian/control
+    + change my email address
+    + declare`Enhances: multitail' field
+    + expand long description
+  * be more verbose on README.Source
+  * debian/rules
+    + use dh_prep instead dh_clean -k
+    + remove CFLAGS, dpkg-buildpackage can handle it
+  * update debian/copyright
+
+ -- Rene Mayorga <rmayorga@debian.org>  Mon, 19 Jan 2009 09:30:02 -0600
+
+rsstail (1.4-4) unstable; urgency=low
+
+  * debian/control
+    + Set standards-versions to 3.8.0
+      + Add README.Source
+    + fix typo s/an/and/
+    + Set compat level to 7
+  * debian/rules
+    + made install-stamp depends on build-stamp instead build
+
+ -- Rene Mayorga <rmayorga@debian.org.sv>  Thu, 09 Oct 2008 00:09:51 -0600
+
+rsstail (1.4-3) unstable; urgency=low
+
+  * Remove libnxml-depends and libmrss-depends (Closes: #475437)
+
+ -- Rene Mayorga <rmayorga@debian.org.sv>  Thu, 10 Apr 2008 14:08:37 -0600
+
+rsstail (1.4-2.1) unstable; urgency=low
+
+  * NMU
+  * Set debian/compat to 6.
+
+ -- Torsten Werner <twerner@debian.org>  Mon, 17 Mar 2008 22:18:23 +0100
+
+rsstail (1.4-2) unstable; urgency=low
+
+  * Add a workarround to avoid the unstable libmrss0 ABI
+    Thanks goes to Torsten Werner ( Closes: #467202 )
+  * Use debhelper compatibility level 6
+
+ -- Rene Mayorga <rmayorga@debian.org.sv>  Tue, 26 Feb 2008 16:11:14 -0600
+
+rsstail (1.4-1) unstable; urgency=low
+
+  * New upstream release
+  * Add patch to the manpage - new options 
+  * debian/control
+    + add quilt to Build-Depends
+    + Bumped standards version to 3.7.3 ( no changes requiered)
+    + Promote 'Homepage' to a real field
+    + Fix a small typo in long description
+  * debian/rules
+    + clean -stamp files 
+    + add install-stamp target
+    + remove unused dh_installman
+    + include quilt rulsets
+
+ -- Rene Mayorga <rmayorga@debian.org.sv>  Sat, 22 Dec 2007 19:30:39 -0600
+
+rsstail (1.3-1) unstable; urgency=low
+
+  * Initial release (Closes: #426954)
+
+ -- Rene Mayorga <rmayorga@debian.org.sv>  Wed, 04 Jul 2007 17:39:38 -0600
+

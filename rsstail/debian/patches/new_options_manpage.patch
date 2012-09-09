@@ -1,0 +1,28 @@
+Description: Documment some options over upstream manpage
+Origin: vendor
+Forwarded: no
+Author: René Mayorga <rmayorga@debian.org>
+Last-Update: 2012-06-26
+Index: rsstail-1.4/rsstail.1
+===================================================================
+--- rsstail-1.4.orig/rsstail.1	2007-12-22 20:26:17.000000000 -0600
++++ rsstail-1.4/rsstail.1	2007-12-22 20:32:05.000000000 -0600
+@@ -1,6 +1,6 @@
+ .TH "RSSTAIL" "1" "0.1" "" "User Commands"
+ .SH "NAME"
+-rsstail a Console Based RSS news reader 
++rsstail \- a Console Based RSS news reader 
+ .SH "SYNOPSIS"
+ .PP 
+ \fBrsstail\fR [\fBOPTIONS\fB]... \fB\-u\fB URL 
+@@ -17,6 +17,10 @@
+  
+ .IP "\fB\-t\fP" 10
+ Show timestamp.
++.IP "\fB\-N\fP" 10
++Do not show headings
++.IP "\fB\-Z X\fP" 10
++Add heading 'x'
+ .IP "\fB\-l\fP" 10
+ Show link
+ .IP "\fB\-d\fB" 10
