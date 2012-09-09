@@ -1,0 +1,13 @@
+Source: mocicon
+Section: sound
+Priority: optional
+Maintainer: Alex 'AdUser' Z <ad_user@lavabit.com>
+Build-Depends: debhelper (>= 8.0.0), pkg-config, libgtk2.0-dev
+Standards-Version: 3.9.3
+Homepage: http://mocicon.sourceforge.net/
+
+Package: mocicon
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: moc
+Description: MocIcon is a simple Music On Console tray icon.
