@@ -1,0 +1,81 @@
+diff -durN data.old/antiques data/antiques
+--- a/data/antiques	2012-09-07 23:47:02.504417409 +1100
++++ b/data/antiques	2012-09-07 23:47:55.932418677 +1100
+@@ -15,7 +15,7 @@
+ %
+ During that one ten minute period of the day when the sun blazes the hottest, Mother Nature invariably calls. 
+ 		-- Hotkowski's First Law Concerning Porta-Potties and Outdoor Antique Shows
+-% 
++%
+ The biggest, most wretched slob in three states, will always be standing one spot ahead of you in line. 
+ 		-- Hotkowski's Second Law Concerning Porta-Potties and Outdoor Antique Shows
+ %
+@@ -55,7 +55,7 @@
+ If it doesn't sell in the first ten minutes it won't sell in the first hour. 
+ Nothing sells in the first ten minutes. 
+ 		-- Marshall's Tenets Concerning Three Day Antique Shows
+-% 
++%
+ The odds of a husband and wife agreeing on any antique purchase are practically zero. 
+ 		-- Hammitt's Constant
+ %
+diff -durN data.old/dating data/dating
+--- a/data/dating	2012-09-07 23:47:02.504417409 +1100
++++ b/data/dating	2012-09-07 23:47:55.936418678 +1100
+@@ -21,7 +21,7 @@
+ %
+ You cannot know both the location of a female and that she is single at any given time. If the location of the female in question is known, see Law #1 
+ 		-- The Heisenberg Principle of Dating
+-% 
++%
+ Men and women will act rationally when all other possibilities have been exhausted. 
+ 		-- Katz's Law
+ %
+diff -durN data.old/mother data/mother
+--- a/data/mother	2012-09-07 23:47:02.504417409 +1100
++++ b/data/mother	2012-09-07 23:47:55.940418678 +1100
+@@ -8,19 +8,19 @@
+ %
+ Watched telephone never rings. 
+ 		-- The Ring Rule
+-% 
++%
+ Never pick up the phone on Saturday night. It's a call from a creep you told you were busy. 
+ 		-- The Creep Call
+-% 
++%
+ They say there are lots of good fish in the sea. But who wants to go out with a fish? 
+ 		-- The Fishing Forecast
+-% 
++%
+ Love is a form of temporary insanity curable only by marriage. 
+ 		-- The Psychological Prognosis
+ %
+ Give a man enough rope and he'll lasso another woman. 
+ 		-- The Rope Trick 
+-% 
++%
+ No one ever falls in love with another person's mind at a cocktail party. 
+ 		-- Mind Over Matter
+ %
+@@ -30,16 +30,16 @@
+ Men's desire for sex sometimes results in intimacy. 
+ Women's desire for intimacy often results in sex. 
+ 		-- The Unintended Result
+-% 
++%
+ Only newlyweds and liars make love every day. 
+ 		-- The Rabbit Rule
+-% 
++%
+ You can't keep a good man down. 
+ 		-- The Dangle Doctrine
+-% 
++%
+ Familarity breed children. 
+ 		-- Twain's Truth
+-% 
++%
+ Women are only fertile a few days each month... unless they're single. 
+ 		-- The Fertility Factor
+ %

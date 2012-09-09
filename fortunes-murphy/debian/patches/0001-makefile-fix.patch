@@ -1,0 +1,21 @@
+--- a/Makefile	2012-09-07 23:31:32.868395350 +1100
++++ b/Makefile	2012-09-07 23:33:16.452397812 +1100
+@@ -1,6 +1,15 @@
+ # fortune-murphy installation script
+-DESTDIR=/usr/local/share/games/fortune/murphy
++INSTALLPATH=${DESTDIR}/usr/share/games/fortunes/murphy
++
++clean:
+ 
+ install:
+-	mkdir -p $(DESTDIR)
+-	cp data/* $(DESTDIR)
++	mkdir tmp/
++	mv data/*.dat tmp/
++	cat data/* > "all"
++	strfile "all"
++	mv "all" "all.dat" data/
++	mv tmp/*.dat data/
++	rmdir tmp/
++	install -d -m 0755 -d     ${INSTALLPATH}
++	install -D -m 0644 data/* ${INSTALLPATH}
