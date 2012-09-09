@@ -1,0 +1,7 @@
+--- a/setup.cfg 2012-09-10 01:05:27.314216245 +1100
++++ b/setup.cfg	2012-09-10 01:06:04.354217270 +1100
+@@ -1,2 +1,4 @@
++[global]
++verbose = 0
+ [bdist_rpm]
+ doc_files = ANNOUNCE,CREDITS,LICENCE,README,README.dom,README.pyexpat,README.sgmlop,doc,demo,test

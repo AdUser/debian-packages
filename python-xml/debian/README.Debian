@@ -1,0 +1,7 @@
+python-xml for Debian
+---------------------
+
+This package provides deprecated pyxml module for python.
+Don't use it in new programs.
+
+ -- Alex 'AdUser' Z <ad_user@lavabit.com>  Sun, 09 Sep 2012 15:13:48 +1100
