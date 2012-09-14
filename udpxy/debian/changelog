@@ -1,5 +1,5 @@
-udpxy (1.0.23-0-1) unstable; urgency=low
+udpxy (1.0.23-1) unstable; urgency=low
 
-  * Initial release
+  * Initial release (Closes: #687543)
 
- -- Alex <ad_user@lavabit.com>  Thu, 06 Sep 2012 01:23:11 +1100
+ -- Alex 'AdUser' Z <ad_user@lavabit.com>  Thu, 06 Sep 2012 01:23:11 +1100
